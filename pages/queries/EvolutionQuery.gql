@@ -1,0 +1,13 @@
+query GetPokemonEvolution($id: String!) {
+    pokemon(id: $id) {
+      id
+      number
+      name
+      evolutions {
+        id
+        number
+        name
+        image
+      }
+    }
+  }
