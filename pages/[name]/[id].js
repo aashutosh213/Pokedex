@@ -4,11 +4,12 @@ import { useRouter } from 'next/router';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
-import PokemonQuery from '../../queries/PokemonQuery.gql';
+import PokemonQuery from '@/queries/PokemonQuery.gql';
 
+import Evolution from '@/components/evolution';
 import Loading from '@/components/loading';
 import Heads from '@/components/heads';
-import Evolution from '@/components/evolution';
+
 
 const Pokemon_Query = gql`${PokemonQuery}`;
 
