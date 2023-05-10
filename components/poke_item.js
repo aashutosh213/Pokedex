@@ -38,7 +38,12 @@ export function PokeItem() {
   }, []);
 
 
+  const isBrowser = () => typeof window !== 'undefined'; //The approach recommended by Next.js
 
+  function scrollToTop() {
+      if (!isBrowser()) return;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
 
   // if (loading) {
@@ -114,7 +119,7 @@ export function PokeItem() {
           currentPage={page}
           pageSize={pageSize}
           totalItems={pokemons.length}
-          onPageChange={(newPage) => setPage(newPage)}
+          onPageChange={(newPage) => {setPage(newPage); scrollToTop()}}
         />
       </div>
     </div>
