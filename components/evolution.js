@@ -38,7 +38,7 @@ function Evolution({ id }) {
   
     return (
       <div className=''>
-        {!evol?(<div><button className={`bg-blue-500 my-2 text-white rounded-md p-2 ${!show? "mt-0" : "hidden"}`} onClick={handleFetchData}>Show Evolution</button> <div className={`${!show? "hidden":"mt-2"}`}><Loading /> </div></div>):(
+        {!evol?(<div className='mt-2'><button className={`bg-blue-500 my-2 text-white rounded-md p-2 ${!show? "mt-0" : "hidden"}`} onClick={handleFetchData}>Show Evolution</button> <div className={`${!show? "hidden":"mt-2"}`}><Loading /> </div></div>):(
           <div className='flex flex-col'>
           <div className='flex justify-center'>
             <h2 className='mb-1 my-4 text-lg'>Evolutions: </h2>

@@ -48,7 +48,7 @@ export default function Details (){
                         <h1 className="my-4 mx-3 text-lg font-bold justify-center">{pokemon.name}</h1>
                         <div className="flex flex-row justify-around mb-3">
                             {pokemon.types.map((type)=>(
-                            <h4 key={type} className={`bg-sky-500 text-white font-bold px-2 rounded`}>{type}</h4>
+                            <h4 key={type} className={`${type} text-white font-bold px-2 rounded`}>{type}</h4>
                             ))}
                         </div>
                         
@@ -73,7 +73,7 @@ export default function Details (){
                         <h2 className="my-4 text-lg">Weaknesses: </h2>
                         <div className="flex flex-row justify-around mt-2">
                             {pokemon.weaknesses.map((weak)=>(
-                                <h4 key={weak} className={'text-white font-bold py-1 px-2 rounded bg-orange-500'}>{weak}</h4>
+                                <h4 key={weak} className={`text-white font-bold py-1 px-2 rounded ${weak}`}>{weak}</h4>
                             ))}
                         </div>
                     </div>
@@ -86,7 +86,7 @@ export default function Details (){
                         <h2 className="my-4 text-lg">Resistant: </h2>
                         <div className="flex flex-row justify-around mt-2">
                             {pokemon.resistant.map((resist)=>(
-                                <h4 key={resist} className={'text-white font-bold py-1 px-2 rounded bg-purple-500'}>{resist}</h4>
+                                <h4 key={resist} className={`text-white font-bold py-1 px-2 rounded ${resist}`}>{resist}</h4>
                             ))}
                         </div>
                     </div>

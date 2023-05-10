@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Pagination from "./pagination";
 import PokemonsQuery from "@/queries/PokemonsQuery.gql";
@@ -15,24 +15,45 @@ const QUERY = gql`
 export function PokeItem() {
   const [page, setPage] = useState(0);
   const pageSize = 20;
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const { loading, error, data } = useQuery(QUERY, {
-    variables: {
-      first: 999,
-    },
-  });
 
-  if (loading) {
-    return <Loading />;
-  }
+  // const { loading, error, data } = useQuery(QUERY, {
+  //   variables: {
+  //     first: 999,
+  //   },
+  // });
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch('/api/pokemon');
+      console.log("response: " + JSON.stringify(response));
+      const data = await response.json();
+      console.log(data);
+      setData(data);
+      setLoading(false);
+    }
 
-  if (error) {
-    <div>error.....</div>;
-  }
+    fetchData();
+  }, []);
+
+
+
+
+
+  // if (loading) {
+  //   return <Loading />;
+  // }
+
+  // if (error) {
+  //   <div>error.....</div>;f (loading) {
+  //   return <Loading />;
+  // }
+  // }
 
   // console.log(data);
 
-  const pokemons = data.pokemons;
+  const pokemons = data ? data.pokemons : [];
 
   // if(data == null)return (
   // <div>
@@ -78,7 +99,7 @@ export function PokeItem() {
                     <h4
                       key={`${Pokemon.id + type}`}
                       className={
-                        "text-white font-bold py-1 px-2 rounded bg-sky-500"
+                        `text-white font-bold py-1 px-2 rounded ${type} bg-sky-500`
                       }
                     >
                       {type}
