@@ -49,7 +49,7 @@ body {
 
 .Poison{background-color: #A33EA1;}
 
-.ground{background-color: #E2BF65;}
+.Ground{background-color: #E2BF65;}
 
 .Flying{background-color: #A98FF3;}
 
@@ -68,3 +68,8 @@ body {
 .Steel{background-color: #B7B7CE;}
 
 .Fairy{background-color: #D685AD;}
+
+.Normal{
+  --tw-bg-opacity:1;
+  background-color: rgb(14 165 233/var(--tw-bg-opacity));
+}
